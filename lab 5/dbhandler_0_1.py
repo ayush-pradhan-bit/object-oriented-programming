@@ -2,6 +2,12 @@
 """
 sql3lite database example, https://docs.python.org/3/library/sqlite3.html
 argparse tutorial https://docs.python.org/3/howto/argparse.html
+
+Lab5- dbHandler_0_1.py
+Description - ConnectionHandled uses provided sqliite database which contains tables and rounds.
+              each rounds is used to toss the dices in a double-or-nothing game. It plays containing each
+              choices user made (bets) and dices output when playinh a round in the game.
+Author - Ayush Pradhan
 """
 import os, argparse
 import sqlite3
