@@ -62,12 +62,23 @@ def main(path):
     #open connection 
     if c.connection:
         print('connection is open')
-        query_1 = 'SELECT * FROM rounds, plays'
+        query_1 = 'SELECT * FROM rounds'
+        query_2 = 'SELECT round_id, bet, result FROM plays'
+        
         rounds = c.getData(query_1)
-        for row in rounds:
-            print(row)
+        plays = c.getData(query_2)
+        
+        for i in range(len(rounds)):
+            print(" ")
+            print(f"{i}: Initial pot: {rounds[i][1]}")
+            print("bet   dice1   dice2")
+            for j in range (len(plays)):
+                if plays[j][0]== i:
+                    digit1 = str(plays[j][2])[0]
+                    digit2 = str(plays[j][2])[1]
+                    print("{:<7d} {:7s} {:1s}".format(plays[j][1], digit1, digit2))
+            print(f"Final pot:{rounds [i][2]}")
         c.closeConnection()
-    
         
 
 if __name__ == '__main__':
